@@ -45,7 +45,6 @@ public class CategoryServiceImpl implements CategoryService {
             new ResponseStatusException(HttpStatus.NOT_FOUND, "Category not found !");
         }
 
-
-
+        return null;
     }
 }
