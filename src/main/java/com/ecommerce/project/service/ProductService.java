@@ -12,9 +12,9 @@ public interface ProductService {
 
     ProductResponse getAllProducts(Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
 
-    ProductResponse searchByCategory(Long categoryId);
+    ProductResponse searchByCategory(Long categoryId, Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
 
-    ProductResponse searchByKeword(String keyword);
+    ProductResponse searchByKeword(String keyword, Integer pageNumber, Integer pageSize, String sortBy, String sortOrder);
 
     ProductDTO updateProduct(Long productId, ProductDTO product);
 
