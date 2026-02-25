@@ -110,7 +110,7 @@ public class ProductServiceImpl implements ProductService{
         List<Product> products = pageProducts.getContent();
 
         if(products.isEmpty()){
-            throw new APIexception(category.getCategoryName() + "category doesnot have any products");
+            throw new APIexception(category.getCategoryName() + " category doesnot have any products");
         }
 
         List<ProductDTO> productDTOS = products.stream().
