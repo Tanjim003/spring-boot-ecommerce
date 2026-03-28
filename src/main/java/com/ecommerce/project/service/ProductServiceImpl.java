@@ -50,9 +50,10 @@ public class ProductServiceImpl implements ProductService{
 
         List<Product> products = category.getProducts();
         for (int i = 0; i < products.size(); i++ ){
-            if (products.get(i).getProductName().equals(productDTO.getProductName()));
-            isProductNotPresent = false;
-            break;
+            if (products.get(i).getProductName().equals(productDTO.getProductName())) {
+                isProductNotPresent = false;
+                break;
+            }
         }
 
         if(isProductNotPresent) {
