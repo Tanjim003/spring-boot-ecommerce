@@ -70,8 +70,11 @@ public class AuthController {
         List<String> roles = userDetails.getAuthorities().stream()
                 .map(item -> item.getAuthority())
                 .collect(Collectors.toList());
+
+        String jwtToken = jwtUtils.generateTokenFromUsername(userDetails.getUsername());
+
        UserInfoResponse response = new UserInfoResponse(userDetails.getId(),
-               userDetails.getUsername(), roles);
+               userDetails.getUsername(), roles, jwtToken);
 
         return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
                 .body(response);

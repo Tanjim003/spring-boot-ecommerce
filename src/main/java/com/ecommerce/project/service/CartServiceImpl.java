@@ -125,6 +125,11 @@ public class CartServiceImpl implements CartService{
             throw new ResourceNotFoundException("Cart", "cartId", cartID);
         }
         CartDTO cartDTO = modelMapper.map(cart, CartDTO.class);
+        cart.getCartItems().forEach(c->c.getProduct().setQuantity(c.getQuantity()));
+        List<ProductDTO> products = cart.getCartItems().stream()
+                .map(p-> modelMapper.map(p.getProduct(), ProductDTO.class))
+                .collect(Collectors.toList());
+        cartDTO.setProducts(products);
         return cartDTO;
     }
 
