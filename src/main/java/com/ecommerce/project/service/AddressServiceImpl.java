@@ -36,7 +36,7 @@ public class AddressServiceImpl implements AddressService{
 
         address.setUser(user);
         Address savedAddress = addressRepository.save(address);
-        return null;
+        return modelMapper.map(savedAddress, AddressDTO.class);
     }
 
     @Override
