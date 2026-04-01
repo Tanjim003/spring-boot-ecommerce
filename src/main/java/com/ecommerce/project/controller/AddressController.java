@@ -4,6 +4,7 @@ import com.ecommerce.project.model.User;
 import com.ecommerce.project.payload.AddressDTO;
 import com.ecommerce.project.service.AddressService;
 import com.ecommerce.project.util.AuthUtil;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,6 +23,7 @@ public class AddressController {
     @Autowired
     AddressService addressService;
 
+    @Tag(name="Address APIs", description = "APIs to create , update , and delete user address")
     @PostMapping("/addresses")
     public ResponseEntity<AddressDTO> createAddress(@Valid @RequestBody AddressDTO addressDTO){
         User user = authUtil.loggedInUser();
@@ -29,18 +31,21 @@ public class AddressController {
         return new ResponseEntity<>(savedAddressDTO, HttpStatus.CREATED);
     }
 
+    @Tag(name="Address APIs", description = "APIs to create , update , and delete user address")
     @GetMapping("/addresses")
     public ResponseEntity<List<AddressDTO>> getAddresses(){
         List<AddressDTO> addressList = addressService.getaddresses();
         return new ResponseEntity<>(addressList, HttpStatus.OK);
     }
 
+    @Tag(name="Address APIs", description = "APIs to create , update , and delete user address")
     @GetMapping("/addresses/{addressId}")
     public ResponseEntity<AddressDTO> getAddressesById(@PathVariable Long addressId){
         AddressDTO addressDTO = addressService.getaddressesById(addressId);
         return new ResponseEntity<>(addressDTO, HttpStatus.OK);
     }
 
+    @Tag(name="Address APIs", description = "APIs to create , update , and delete user address")
     @GetMapping("/users/addresses")
     public ResponseEntity<List<AddressDTO>> getUserAddresses(){
         User user = authUtil.loggedInUser();
@@ -48,6 +53,7 @@ public class AddressController {
         return new ResponseEntity<>(addressList, HttpStatus.OK);
     }
 
+    @Tag(name="Address APIs", description = "APIs to create , update , and delete user address")
     @PutMapping("/addresses/{addressId}")
     public ResponseEntity<AddressDTO> updateAddress(@PathVariable Long addressId,
                                                           @RequestBody AddressDTO addressDTO){
@@ -55,6 +61,7 @@ public class AddressController {
         return new ResponseEntity<>(updatedAddress, HttpStatus.OK);
     }
 
+    @Tag(name="Address APIs", description = "APIs to create , update , and delete user address")
     @DeleteMapping("/addresses/{addressId}")
     public ResponseEntity<String> deleteAddress(@PathVariable Long addressId){
         String status = addressService.deleteAddress(addressId);

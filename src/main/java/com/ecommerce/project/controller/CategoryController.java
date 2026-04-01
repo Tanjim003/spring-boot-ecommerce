@@ -51,6 +51,7 @@ public class CategoryController {
         return new ResponseEntity<>(savedCategoryDTO, HttpStatus.CREATED);
     }
 
+    @Tag(name="Category APIs", description = "APIs for managing categories")
     @DeleteMapping("/admin/categories/{categoryId}")
     public ResponseEntity<CategoryDTO> deleteCategory(@Parameter(description = "Id of the category you wish to delete")
                                                           @PathVariable Long categoryId){
@@ -59,6 +60,7 @@ public class CategoryController {
             return new ResponseEntity<>(deleteCategory,  HttpStatus.OK);
         }
 
+    @Tag(name="Category APIs", description = "APIs for managing categories")
     @PutMapping("/public/categories/{categoryId}")
     public ResponseEntity<CategoryDTO> updateCategory(@RequestBody CategoryDTO categoryDTO , @PathVariable Long categoryId){
 
