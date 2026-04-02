@@ -1,121 +1,35 @@
-  E-Commerce Masterclass — Full Stack Development Journey
+E-Commerce REST API — Spring Boot
+Java 17 · Spring Boot 3 · Spring Security · JWT · PostgreSQL · AWS EC2
+Live: ---------------------- · Swagger UI: http://<host>/swagger-ui.html
 
-A production-style **E-Commerce platform** built step-by-step to learn real-world backend and full-stack development.
+What's Built
+Auth — JWT stored in HTTP-only cookies, role-based access (USER / ADMIN), full signup & login flow with custom security filter chain
+Products & Categories — Full CRUD, image upload, keyword search, pagination & sorting, discount/special price support
+Cart — Add, update quantity, remove items — all scoped to the logged-in user
+Address — User address management, fully validated, linked to authenticated user
+Orders & Payments — Checkout from cart, delivery address selection, payment gateway fields (pgName, pgPaymentId, pgStatus) persisted on order
 
-This project focuses on writing clean, scalable code while following industry practices used in modern software development.
+Architecture
+Controller → Service (Interface + Impl) → Repository → PostgreSQL
+
+DTO pattern with ModelMapper — entities never leak into the API layer
+Global exception handling via @RestControllerAdvice
+Bean validation on all request bodies
+OpenAPI 3 / Swagger docs with endpoints grouped by module
 
 
-📌 Project Goal
-
-Build a complete e-commerce system from backend to deployment while mastering:
-
-* Spring Boot backend architecture
-* REST API design
-* Spring Security & JWT authentication
-* Swagger API documentation
-* React frontend (upcoming)
-* AWS deployment & CI/CD
-
----
-
-✅ Current Status
-
-Backend (Spring Boot) — Actively Developing**
-
- Implemented Features
-
-* Layered Architecture (Controller → Service → Repository)
-* Category Management (CRUD APIs)
-* Pagination & Sorting
-* DTO Pattern with ModelMapper
-* Global Exception Handling
-* Bean Validation
-* Spring Security configuration
-* JWT Authentication & Authorization
-* Swagger API Documentation
-
----
-
-## 🏗️ Tech Stack
-
-Backend**
-
-* Java 17
-* Spring Boot
-* Spring Security
-* JWT
-* Spring Data JPA
-* PostgreSQL
-
-Tools**
-
-* Maven
-* Docker
-* Swagger / OpenAPI
-* Git & GitHub
-
-Upcoming**
-
-* React.js Frontend
-* AWS Deployment
-
----
-
- 📂 Project Architecture
-
-```
-controller → service → repository → database
-```
-
-Clean layered structure focused on maintainability and scalability.
-
----
-
- 🚀 Running the Project
-
-```bash
-git clone https://github.com/yourusername/ecommerce-journey.git
-cd ecommerce-journey
+Run Locally
+bashgit clone https://github.com/yourusername/sb-ecom.git
+cd sb-ecom
+# set DB credentials in src/main/resources/application.properties
 mvn spring-boot:run
-```
 
-API runs at:
+What's Next
 
-```
-http://localhost:8080
-```
+React.js frontend (in progress)
+Stripe / Razorpay payment integration
+CI/CD pipeline
 
-Swagger Docs:
+This project is actively developed — backend is production-complete, full-stack coming soon.
 
-```
-http://localhost:8080/swagger-ui.html
-```
-
-🎯 Roadmap
-
-* ✅ Backend Core APIs
-* ✅ Security & JWT
-* 🔄 Product & Order Modules
-* 🔜 React Frontend
-* 🔜 Payment Integration
-* 🔜 AWS Deployment
-
----
-
-📈 Purpose of This Project
-
-This repository documents my learning journey toward becoming a **production-ready backend/full-stack developer**.
-
-Instead of a tutorial project, this is built incrementally with:
-
-* real architecture decisions
-* continuous refactoring
-* consistent commits
-
----
-
- Author
-
-Tanjim Hossain
-Computer Science Undergraduate | Backend Developer (Java & Spring Boot)
-
+Tanjim Hossain — CS Undergraduate · Backend Developer (Java & Spring Boot)
